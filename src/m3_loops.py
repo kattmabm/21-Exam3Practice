@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -213,7 +213,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -222,19 +222,21 @@ def practice_problem3(start, n, threshold):
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
 
-    meets_threshold = []
-    if threshold > math.sqrt(2):
-        for k in range(n - start):
-            meets_threshold.append(start + k)
-        return meets_threshold
-    if n == 0:
-        return []
-    while(True):
-        if (math.sin(start) + math.cos(start)) > threshold:
-            meets_threshold.append(start)
-        if start > n:
-            return meets_threshold
-        start += 1
+    listyboi = []
+    counter = 0
+    check = start
+    while counter != n:
+        value1 = math.sin(check)
+        value2 = math.cos(check)
+        if value1 + value2 > threshold:
+            listyboi += [check]
+            counter += 1
+        if counter == n:
+            break
+        check += 1
+    return listyboi
+
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
